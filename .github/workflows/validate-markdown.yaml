@@ -1,0 +1,30 @@
+name: Reviewdog
+on:  
+  pull_request:
+    paths:
+      - '**/*.md'
+      - 'PROJECT'
+      - 'LICENSE'
+jobs:
+  vale:
+    name: runner / vale
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Run vale to review syntax in markdown files
+        uses: errata-ai/vale-action@reviewdog
+        env:
+          # Required, set by GitHub actions automatically:
+          # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          version: 2.20.1
+          files: '[ "docs/", "CONTRIBUTING.md", "README.md", "SECURITY.md", "TROUBLESHOOTING.md", "PROJECT", "LICENSE" ]'
+          filter_mode: diff_context
+          reporter: github-pr-review
+          fail_on_error: false
+          level: suggestion
