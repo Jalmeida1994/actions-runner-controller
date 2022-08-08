@@ -3,7 +3,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6061/badge)](https://bestpractices.coreinfrastructure.org/projects/6061)
 [![awesome-runners](https://img.shields.io/badge/listed%20on-awesome--runners-blue.svg)](https://github.com/jonico/awesome-runners)
 
-This controller operates self-hosted runners for GitHub Actions on your Kubernetes cluster. Yo Yo!
+This controller operates self-hosted runners for GitHub Actions on your Kubernetes cluster.
 
 ToC:
 
