@@ -11,6 +11,8 @@ async
 automations
 autoscaling
 Autoscaling
+autoscaler
+Autoscaler
 backoffice
 Blackbox
 bool
@@ -53,6 +55,7 @@ Dev
 dev
 devops
 devs
+DinD
 discoverability
 Discoverability
 dls
@@ -101,6 +104,7 @@ overprovision
 overprovisioning
 mailto
 makefile
+Makefile
 md
 memcache
 memoize
@@ -163,6 +167,7 @@ Repo
 repos
 rerender
 rerenders
+restartPolicy
 Reusability
 reusability
 roadmaps
@@ -180,6 +185,7 @@ Scaffolder
 semver
 Serverless
 siloed
+Sysbox
 sourcemaps
 src
 stdout
@@ -235,4 +241,3 @@ xyz
 yaml
 zsh
 zshrc
-
