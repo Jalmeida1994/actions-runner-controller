@@ -5,9 +5,10 @@ on:
       - '**/*.md'
       - 'PROJECT'
       - 'LICENSE'
+
 jobs:
   vale:
-    name: runner / vale
+    name: Validate Markdown
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run vale to review syntax in markdown files
+      - name: Run Vale to review syntax in markdown files
         uses: errata-ai/vale-action@reviewdog
         env:
           # Required, set by GitHub actions automatically:
