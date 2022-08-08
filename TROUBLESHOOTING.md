@@ -114,7 +114,7 @@ Your base64'ed PAT token has a new line at the end, it needs to be created witho
 Error: UPGRADE FAILED: failed to create resource: Internal error occurred: failed calling webhook "webhook.cert-manager.io": failed to call webhook: Post "https://cert-manager-webhook.cert-manager.svc:443/mutate?timeout=10s": x509: certificate signed by unknown authority
 ```
 
-Apparently, it's failing while `helm` is creating one of resources defined in the ARC chart and the cause was that cert-manager's webhook is not working correctly, due to the missing or the invalid CA certficate.
+Apparently, it's failing while `helm` is creating one of resources defined in the ARC chart and the cause was that cert-manager's webhook is not working correctly, due to the missing or the invalid CA certificate.
 
 You'd try to tail logs from the `cert-manager-cainjector` and see it's failing with an error like:
 
@@ -132,7 +132,7 @@ Error: error registering secret controller: no matches for kind "MutatingWebhook
 
 **Solution**
 
-Your cluster is based on a new enough Kubernetes of version 1.22 or greater which does not support the legacy `admissionregistration.k8s.io/v1beta1` API anymore, and your `cert-manager` is not up-to-date hence it's still trying to use the leagcy Kubernetes API.
+Your cluster is based on a new enough Kubernetes of version 1.22 or greater which does not support the legacy `admissionregistration.k8s.io/v1beta1` API anymore, and your `cert-manager` is not up-to-date hence it's still trying to use the legacy Kubernetes API.
 
 In many cases, it's not an option to downgrade Kubernetes. So, just upgrade `cert-manager` to a more recent version that does have have the support for the specific Kubernetes version you're using.
 
@@ -140,17 +140,17 @@ See https://cert-manager.io/docs/installation/supported-releases/ for the list o
 
 ## Operations
 
-Troubeshooting runbooks that relate to ARC operational problems
+Troubleshooting runbooks that relate to ARC operational problems
 
 ### Stuck runner kind or backing pod
 
 **Problem**
 
-Sometimes either the runner kind (`kubectl get runners`) or it's underlying pod can get stuck in a terminating state for various reasons. You can get the kind unstuck by removing its finaliser using something like this:
+Sometimes either the runner kind (`kubectl get runners`) or it's underlying pod can get stuck in a terminating state for various reasons. You can get the kind unstuck by removing its finalizer using something like this:
 
 **Solution**
 
-Remove the finaliser from the relevent runner kind or pod
+Remove the finalizer from the relevent runner kind or pod
 
 ```
 # Get all kind runners and remove the finalizer

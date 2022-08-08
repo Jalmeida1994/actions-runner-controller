@@ -3,7 +3,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6061/badge)](https://bestpractices.coreinfrastructure.org/projects/6061)
 [![awesome-runners](https://img.shields.io/badge/listed%20on-awesome--runners-blue.svg)](https://github.com/jonico/awesome-runners)
 
-This controller operates self-hosted runners for GitHub Actions on your Kubernetes cluster. Tesnting here the vale action.
+This controller operates self-hosted runners for GitHub Actions on your Kubernetes cluster.
 
 ToC:
 
@@ -358,7 +358,7 @@ Now you can see the runner on the enterprise level (if you have enterprise acces
 
 ### RunnerDeployments
 
-In our previous examples we were deploying a single runner via the `RunnerDeployment` kind, the amount of runners deployed can be statically set via the `replicas:` field, we can increase this value to deploy additioanl sets of runners instead:
+In our previous examples we were deploying a single runner via the `RunnerDeployment` kind, the amount of runners deployed can be statically set via the `replicas:` field, we can increase this value to deploy additional sets of runners instead:
 
 ```yaml
 # runnerdeployment.yaml
@@ -1142,7 +1142,7 @@ A common use case for this may be to have 1 override to scale to 0 during the we
 
 ### Alternative Runners
 
-ARC also offers a few altenrative runner options
+ARC also offers a few alternative runner options
 
 #### Runner with DinD
 
@@ -1600,7 +1600,7 @@ jobs:
 
 When using labels there are a few things to be aware of:
 
-1. `self-hosted` is implict with every runner as this is an automatic label GitHub apply to any self-hosted runner. As a result ARC can treat all runners as having this label without having it explicitly defined in a runner's manifest. You do not need to explicitly define this label in your runner manifests (you can if you want though).
+1. `self-hosted` is implicit with every runner as this is an automatic label GitHub apply to any self-hosted runner. As a result ARC can treat all runners as having this label without having it explicitly defined in a runner's manifest. You do not need to explicitly define this label in your runner manifests (you can if you want though).
 2. In addition to the `self-hosted` label, GitHub also applies a few other [default](https://docs.github.com/en/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow#using-default-labels-to-route-jobs) labels to any self-hosted runner. The other default labels relate to the architecture of the runner and so can't be implicitly applied by ARC as ARC doesn't know if the runner is `linux` or `windows`, `x64` or `ARM64` etc. If you wish to use these labels in your workflows and have ARC scale runners accurately you must also add them to your runner manifests.
 
 ### Runner Groups
