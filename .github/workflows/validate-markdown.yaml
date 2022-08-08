@@ -5,6 +5,11 @@ on:
       - '**/*.md'
       - 'PROJECT'
       - 'LICENSE'
+  push: # TESTING PURPOSES: REMOVE
+    paths:
+      - '**/*.md'
+      - 'PROJECT'
+      - 'LICENSE'
 jobs:
   vale:
     name: runner / vale
