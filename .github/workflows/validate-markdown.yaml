@@ -5,11 +5,6 @@ on:
       - '**/*.md'
       - 'PROJECT'
       - 'LICENSE'
-  push: # TESTING PURPOSES: REMOVE
-    paths:
-      - '**/*.md'
-      - 'PROJECT'
-      - 'LICENSE'
 jobs:
   vale:
     name: runner / vale
@@ -28,7 +23,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           version: 2.20.1
-          files: '["CONTRIBUTING.md", "README.md", "SECURITY.md", "TROUBLESHOOTING.md", "PROJECT", "LICENSE"]'
+          files: '["docs/", "CONTRIBUTING.md", "README.md", "SECURITY.md", "TROUBLESHOOTING.md", "PROJECT", "LICENSE"]'
           filter_mode: diff_context
           reporter: github-pr-review
           fail_on_error: false
